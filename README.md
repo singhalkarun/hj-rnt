@@ -1,3 +1,3 @@
-# RNT - BLOG APP
+# RNT - BLOG WEB Application
 
 For hack jaipur hackathon
