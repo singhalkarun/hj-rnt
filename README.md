@@ -10,4 +10,18 @@ There are many people who are not to familiar with tech or many who don't have h
 
 So, Here comes our blog site which is very easy to use and also lightweight.
 
+## Tech Stack
+* Python
+* Django
+* Auth0
+* Heroku
+
+### Python library dependencies
+
+* Django>=3.0.7
+* social-auth-app-django~=3.1
+* python-jose~=3.0
+* python-dotenv~=0.9
+* gunicorn==19.9.0
+* whitenoise==4.1.4
 
