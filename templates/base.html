@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog</title>
+    <title>Home</title>
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400"
         rel="stylesheet">
     <link href="{% static 'css/base.css' %}" rel="stylesheet">
@@ -14,9 +14,10 @@
         <header>
             
             <div class="nav-left">
-                <h1><a href="{% url 'home' %}">Blog</a></h1>
-            </div>
-            
+                <h1><a href="{% url 'home' %}">RNT's blog</a></h1>
+                <p>A blog where your identity is anonymous.</p>
+              </div>
+
             <div class="nav-right">
                 <a href="{% url 'post_new' %}">+ New Blog Post</a>
             </div>
@@ -28,7 +29,7 @@
             <p><a href="{% url 'logout' %}">Log out</a></p>
         {% else %}
             <p>You are not logged in.</p>
-            <a href="{% url 'login' %}">Log In</a> | <a href="{% url 'signup' %}">Sign Up</a>
+            <a class="btn btn-primary btn-lg btn-login btn-block" href="/login/auth0">Log In </a>
         {% endif %}
    
         {% block content %}

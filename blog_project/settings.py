@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '2kvxqie(azwpr7e0y1xv7^7tk4uu)35chutbjtn1m)n@o%5(+*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -36,16 +36,16 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'whitenoise.runserver_nostatic', # new!
     'django.contrib.staticfiles',
-    'blog.apps.BlogConfig', 
-    'accounts.apps.AccountsConfig', # new
+    'blog.apps.BlogConfig',
+    'accounts.apps.AccountsConfig',
+    'social_django',
+    'auth0login' # new
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware', # new!
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -120,15 +120,38 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
+# webappexample\settings.py
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') # new!
+SOCIAL_AUTH_TRAILING_SLASH = False  # Remove trailing slash from routes
+SOCIAL_AUTH_AUTH0_DOMAIN = 'dev-ysbtebco.us.auth0.com'
+SOCIAL_AUTH_AUTH0_KEY = 'o8PWZL8fsYd9qLcNKNdJ7Wkf3vlAeE4l'
+SOCIAL_AUTH_AUTH0_SECRET = 'caNmPi8s_HylBtMJQKIUmkHLbCjm97zmSSgiEzPiaT8zQpyc7IuFx7nQ96jKID01'
+
+# webappexample\settings.py
+
+SOCIAL_AUTH_AUTH0_SCOPE = [
+    'openid',
+    'profile',
+    'email'
+]
+
+# webappexample\settings.py
+
+AUTHENTICATION_BACKENDS = {
+    'auth0login.auth0backend.Auth0',
+    'django.contrib.auth.backends.ModelBackend'
+}
 
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# webappexample\settings.py
+
+# webappexample\settings.py
+
+LOGIN_URL = '/login/auth0'
 
 LOGIN_REDIRECT_URL = 'home'
 
-LOGOUT_REDIRECT_URL = 'home' 
+LOGOUT_REDIRECT_URL = 'home'

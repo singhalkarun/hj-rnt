@@ -29,7 +29,7 @@ class BlogCreateView(LoginRequiredMixin, CreateView): # new
     model = Post
     template_name = 'post_new.html'
     fields = ['title', 'body']
-    login_url = 'login'
+    login_url = '/login/auth0'
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -39,7 +39,7 @@ class BlogUpdateView(LoginRequiredMixin,UserPassesTestMixin,  UpdateView): # new
     model = Post
     template_name = 'post_edit.html'
     fields = ['title', 'body']
-    login_url = 'login'
+    login_url = '/login/auth0'
 
     def test_func(self): # new
         obj = self.get_object()
@@ -49,7 +49,7 @@ class BlogDeleteView(LoginRequiredMixin,UserPassesTestMixin, DeleteView): # new
     model = Post
     template_name = 'post_delete.html'
     success_url = reverse_lazy('home')
-    login_url = 'login'
+    login_url = '/login/auth0'
 
     def test_func(self): # new
         obj = self.get_object()

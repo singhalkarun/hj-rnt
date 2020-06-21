@@ -6,9 +6,10 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
+social-auth-app-django = "~=3.1"
+python-jose = "~=3.0"
+python-dotenv = "~=0.9"
 Django = ">=3.0.7"
-whitenoise = "*"
-gunicorn = "*"
 
 [requires]
 python_version = "3.8"
