@@ -25,3 +25,4 @@ So, Here comes our blog site which is very easy to use and also lightweight.
 * gunicorn==19.9.0
 * whitenoise==4.1.4
 
+[![Intro to RNT blog](http://img.youtube.com/vi/PQ64p9nbCcY/0.jpg)](https://www.youtube.com/watch?v=PQ64p9nbCcY "RNT Blog")
