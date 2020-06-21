@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="post-entry">
+        <h2>{{ DetailedPostObject.title }}</h2>
+        <p>{{ DetailedPostObject.body }}</p>
+    </div>
+
+    {% if user.is_authenticated and user == DetailedPostObject.author %}
+    
+    <a href="{% url 'post_edit' DetailedPostObject.pk %}">+ Edit Blog Post</a>
+    <p><a href="{% url 'post_delete' DetailedPostObject.pk %}">+ Delete Blog Post</a></p>
+
+    {% endif %}
+{% endblock content %}

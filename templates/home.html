@@ -1,14 +1,11 @@
-<!-- templates/home.html -->
-
 {% extends 'base.html' %}
-{% block title %}Home{% endblock title %}
+
 {% block content %}
-{% if user.is_authenticated %}
-Hi {{ user.username }}!
-<p><a href="{% url 'logout' %}">Log Out</a></p>
-{% else %}
-<p>You are not logged in</p>
-<a href="{% url 'login' %}">Log In</a> |
-<a href="{% url 'signup' %}">Sign Up</a>
-{% endif %}
+    {% for post in BlogPostsList %}
+        <div class="post-entry">
+            <h2><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h2>
+            <p>{{ post.body }}</p>
+        </div>
+    
+    {% endfor %}
 {% endblock content %}
